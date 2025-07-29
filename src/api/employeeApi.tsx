@@ -1,7 +1,8 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { DefaultDeserializer } from "v8";
+import { Contract } from "./contractApi";
+
 const API_URL = "http://localhost:9000";
 
 interface Employee {
@@ -11,21 +12,16 @@ interface Employee {
     email: string;
     mobileNumber: string;
     address: string;
+    contracts?: Contract[];
 }
 
 const EmployeeList = () => {
     const [employees, setEmployees] = useState<Employee[]>([]);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        axios
-            .get(`${API_URL}/employees`)
-            .then((response) => {
-                setEmployees(response.data);
-            })
-            .catch((err) => {
-                setError("Failed to fetch employees");
-            });
+        axios.get(`${API_URL}/employees`).then((response) => {
+            setEmployees(response.data);
+        });
     }, []);
     return (
         <div>
