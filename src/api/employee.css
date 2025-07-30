@@ -1,0 +1,16 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 2rem;
+}
+
+button {
+  background-color: rgb(210, 217, 235);
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+button:hover {
+  text-decoration: underline;
+  background-color: rgb(174.6923076923, 187.1846153846, 219.3076923077);
+  cursor: pointer;
+}/*# sourceMappingURL=employee.css.map */
